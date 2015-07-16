@@ -1,4 +1,4 @@
-# NuxTool
+# NuxTool [EM DESENVOLVIMENTO]
 Criado a partir de uma necessidade pessoal, o NuxTool vem como uma continuação do projeto [NuxStart](https://github.com/gmasson/nuxstart) (Instalador de pacotes de programas para Linux) com ferramentas e atalhos para o uso cotidiano no ambiente Linux com distribuição Debian ou derivados.
 
 ## Como Usar
