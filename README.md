@@ -1,7 +1,8 @@
 # NuxTool 0.8
-Criado a partir de uma necessidade pessoal, o NuxTool vem com muitas ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux com a distribuição Debian ou derivado, como por exemplo:
+Criado a partir de uma necessidade pessoal, o NuxTool vem com muitas ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados), como por exemplo:
 
 * Instalador de Pacotes de programas (Estúdio, Desenvolvimento, Engenharia)
+* Gerenciamento de Atualizações
 
 ## Como Usar
 ... [em desenvolvimento]
