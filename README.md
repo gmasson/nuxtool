@@ -17,7 +17,7 @@ agora abra o arquivo, se preferir, abra-o pelo terminal usando o comando:
 
     ./nuxtool.sh
 
-certifique-se caso você esteja logado como ROOT, se não estiver, ao abrir o programa seu sistema pedirá sua senha para executa-lo.
+certifique-se que você esteja logado como ROOT, se não estiver, ao abrir o programa seu sistema pedirá sua senha para executa-lo.
 
 
 ## Documentação
