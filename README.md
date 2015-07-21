@@ -11,7 +11,7 @@ Primeiramente [faça o download](https://github.com/gmasson/nuxtool/zipball/mast
 
 em seguida, dê permissão ao arquivo para que possa executa-lo corretamente
 
-    chmod -R 755 nuxtool.sh
+    chmod -R 750 nuxtool.sh
 
 agora abra o arquivo, se preferir, abra-o pelo terminal usando o comando:
 
