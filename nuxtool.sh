@@ -350,16 +350,14 @@
 	function error() {
 		echo ""
 		echo "Ops, Comando inválido, tente novamente!"
-		echo "DICAS: "
-		echo "- Digite apenas o que está informado antes do hífen [ - ]"
+		echo "DICA: "
 		echo "- Verifique se o Caps Look está ativado"
-		sleep 2
+		sleep 1
 		menu
 	}
 
 	function out() {
 		echo "Obrigado por usar o NuxStart!"
-		sleep 1
 		echo "Encerrando [...]"
 		sleep 1
 		exit
