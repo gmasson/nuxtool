@@ -73,6 +73,21 @@ function info() {
   menu
 }
 
+function configserv() {
+  # Configurando Servidores ...
+  echo "Configurando servidor ..."
+  sleep 1
+
+  # EM DESENVOLVIMENTO
+
+  # Mensagem de Conclusão
+  echo ""
+  echo "Servidor Configurado com Sucesso!"
+  echo ""
+  sleep 1
+  menu
+}
+
 # ----------------------------------------
 # Funções Correspondentes a cada pacote
 # ----------------------------------------
@@ -80,119 +95,171 @@ function info() {
 function installstudio() {
   # Estúdio ...
   echo "Instalando pacote Estúdio ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- GIMP --------------"
-  sudo apt-get install gimp
+  echo "Deseja instalar o GIMP? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- GIMP --------------"
+    sudo apt-get install gimp
+  fi
 
-  echo " -------------- INKSCAPE --------------"
-  sudo apt-get install inkscape
+  echo "Deseja instalar o INKSCAPE? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- INKSCAPE --------------"
+    sudo apt-get install inkscape
+  fi
 
-  echo " -------------- BLENDER --------------"
-  sudo apt-get install blender
+  echo "Deseja instalar o BLENDER? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- BLENDER --------------"
+    sudo apt-get install blender
+  fi
 
-  echo " -------------- AUDACITY --------------"
-  sudo apt-get install audacity
+  echo "Deseja instalar o AUDACITY? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- AUDACITY --------------"
+    sudo apt-get install audacity
+  fi
 
-  echo " -------------- OPENSHOT --------------"
-  sudo apt-get install openshot
-
-  # EM DESENVOLVIMENTO
+  echo "Deseja instalar o OPENSHOT? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- OPENSHOT --------------"
+    sudo apt-get install openshot
+  fi
 
   # Mensagem de Conclusão
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installgame() {
   # Jogos ...
   echo "Instalando pacote Jogos ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
   echo " -------------- JAVA --------------"
   sudo apt-get install default-jre
 
-  echo " -------------- STEAM --------------"
-  sudo apt-get install steam
+  echo "Deseja instalar o STEAM? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- STEAM --------------"
+    sudo apt-get install steam
+  fi
 
-  echo -e " -------------- WINE / PLAYONLINUX --------------"
-  sudo apt-get install wine
-  sudo apt-get install playonlinux
-
-  # EM DESENVOLVIMENTO
+  echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo -e " -------------- WINE / PLAYONLINUX --------------"
+    sudo apt-get install wine
+    sudo apt-get install playonlinux
+  fi
 
   # Mensagem de Conclusão
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installserv() {
-  # Servidores WEB ...
+  # Servidores ...
   echo "Instalando pacote Servidores ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- APACHE --------------"
-  sudo apt-get install apache2
+  echo "Deseja instalar o APACHE? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- APACHE --------------"
+    sudo apt-get install apache2
+  fi
 
-  echo " -------------- MYSQL --------------"
-  sudo apt-get install mysql-server php5-mysql
-  sudo mysql_install_db
-  sudo mysql_secure_installation
+  echo "Deseja instalar o MYSQL? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- MYSQL --------------"
+      sudo apt-get install mysql-server php5-mysql
+      sudo mysql_install_db
+      sudo mysql_secure_installation
+  fi
 
-  echo " -------------- PHP --------------"
-  sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
-  sudo apt-get install php5-curl
+  echo "Deseja instalar o PHP? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- PHP --------------"
+    sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
+    sudo apt-get install php5-curl
+  fi
 
-  echo " -------------- PHPMYADMIN --------------"
-  sudo apt-get install phpmyadmin
+  echo "Deseja instalar o PHPMYADMIN? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- PHPMYADMIN --------------"
+    sudo apt-get install phpmyadmin
+  fi
 
-  echo " -------------- GIT --------------"
-  sudo apt-get install git
+  echo "Deseja instalar o GIT? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- GIT --------------"
+    sudo apt-get install git
+  fi
 
-  echo " -------------- SAMBA --------------"
-  sudo apt-get install samba
+  # add: FTP
+
+  echo "Deseja instalar o SAMBA? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- SAMBA --------------"
+    sudo apt-get install samba
+  fi
+
+  echo "Deseja instalar o WIRESHARK? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- WIRESHARK --------------"
+    sudo apt-get install wireshark
+  fi
 
   # Mensagem de Conclusão
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
-  menu
-}
-
-function configserv() {
-  # Configurando Servidores ...
-  echo "Configurando servidor ..."
-  sleep 2
-
-  # Mensagem de Conclusão
-  echo ""
-  echo "Servidor Configurado com Sucesso!"
-  echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installdev() {
   # Desenvolvedores ...
   echo "Instalando pacote Desenvolvedores ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- JAVA --------------"
-  sudo apt-get install default-jre
+  echo "Deseja instalar o FILEZILLA? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- FILEZILLA --------------"
+    sudo apt-get install filezilla
+  fi
 
-  echo " -------------- FILEZILLA --------------"
-  sudo apt-get install filezilla
+  echo "Deseja instalar o WIRESHARK? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- WIRESHARK --------------"
+    sudo apt-get install wireshark
+  fi
 
   # EM DESENVOLVIMENTO
 
@@ -200,18 +267,22 @@ function installdev() {
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installsec() {
   # Segurança ...
   echo "Instalando pacote Segurança ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- WIRESHARK --------------"
-  sudo apt-get install wireshark
+  echo "Deseja instalar o WIRESHARK? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- WIRESHARK --------------"
+    sudo apt-get install wireshark
+  fi
 
   # EM DESENVOLVIMENTO
 
@@ -219,43 +290,52 @@ function installsec() {
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installelet() {
   # Eletrônica e Engenharia ...
   echo "Instalando pacote Eletrônica e Engenharia ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- JAVA --------------"
-  sudo apt-get install default-jre
+  echo "Deseja instalar o ARDUINO? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- ARDUINO --------------"
+    sudo apt-get install arduino
+    sudo apt-get install gcc-avr
+    sudo apt-get install avr-libc
+  fi
 
-  echo " -------------- ARDUINO --------------"
-  sudo apt-get install arduino
-  sudo apt-get install gcc-avr
-  sudo apt-get install avr-libc
-
-  echo " -------------- FRITZING --------------"
-  sudo apt-get install fritzing
+  echo "Deseja instalar o FRITZING? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- FRITZING --------------"
+    sudo apt-get install fritzing
+  fi
 
   # Mensagem de Conclusão
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installedu() {
   # Educacional ...
   echo "Instalando pacote Educacional ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- JAVA --------------"
-  sudo apt-get install default-jre
+  echo "Deseja instalar o JAVA? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- JAVA --------------"
+    sudo apt-get install default-jre
+  fi
 
   # EM DESENVOLVIMENTO
 
@@ -263,40 +343,64 @@ function installedu() {
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
 function installhome() {
   # Família ...
   echo "Instalando pacote Para Casa ..."
-  sleep 2
+  sleep 1
   sudo apt-get update
 
-  echo " -------------- JAVA --------------"
-  sudo apt-get install default-jre
+  echo "Deseja instalar o JAVA? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- JAVA --------------"
+    sudo apt-get install default-jre
+  fi
 
-  echo " -------------- RAR --------------"
-  sudo apt-get install rar
+  echo "Deseja instalar o RAR? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- RAR --------------"
+    sudo apt-get install rar
+  fi
 
-  echo " -------------- SKYPE --------------"
-  sudo apt-get install skype
+  echo "Deseja instalar o SKYPE? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- SKYPE --------------"
+    sudo apt-get install skype
+  fi
 
-  echo " -------------- LIBREOFFICE --------------"
-  sudo apt-get install libreoffice
+  echo "Deseja instalar o LIBREOFFICE? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- LIBREOFFICE --------------"
+    sudo apt-get install libreoffice
+  fi
 
-  echo " -------------- ACETONEISO --------------"
-  sudo apt-get install AcetoneISO
+  echo "Deseja instalar o ACETONEISO? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- ACETONEISO --------------"
+    sudo apt-get install AcetoneISO
+  fi
 
-  echo -e " -------------- WINE / PLAYONLINUX --------------"
-  sudo apt-get install wine
-  sudo apt-get install playonlinux
+  echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo -e " -------------- WINE / PLAYONLINUX --------------"
+    sudo apt-get install wine
+    sudo apt-get install playonlinux
+  fi
 
   # Mensagem de Conclusão
   echo ""
   echo "Pacote Instalado com Sucesso!"
   echo ""
-  sleep 2
+  sleep 1
   menu
 }
 
@@ -336,13 +440,13 @@ menu() {
     inst-studio) installstudio ;;
     inst-game) installgame ;;
     inst-serv) installserv ;;
-    config-serv) configserv ;;
     inst-dev) installdev ;;
     inst-sec) installsec ;;
     inst-elet) installelet ;;
     inst-edu) installedu ;;
     inst-home) installhome ;;
     # Outros
+    config-serv) configserv ;;
     atual) upg ;;
     atual-dist) updist ;;
     info) info ;;
