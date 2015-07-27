@@ -25,7 +25,6 @@ function ajuda() {
   echo "inst-dev - Desenvolvedores"
   echo "inst-sec - Segurança"
   echo "inst-elet - Eletrônica e Engenharia"
-  echo "inst-edu - Educacional"
   echo "inst-home - Para Casa"
   echo ""
 
@@ -261,6 +260,20 @@ function installdev() {
     sudo apt-get install wireshark
   fi
 
+  echo "Deseja instalar o MYSQL WORKBENCH? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- MYSQL WORKBENCH --------------"
+    apt-get install mysql-workbench mysql-workbench-data
+  fi
+
+  echo "Deseja instalar o VIM? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- VIM --------------"
+    apt-get install vim
+  fi
+
   # EM DESENVOLVIMENTO
 
   # Mensagem de Conclusão
@@ -315,29 +328,6 @@ function installelet() {
     echo " -------------- FRITZING --------------"
     sudo apt-get install fritzing
   fi
-
-  # Mensagem de Conclusão
-  echo ""
-  echo "Pacote Instalado com Sucesso!"
-  echo ""
-  sleep 1
-  menu
-}
-
-function installedu() {
-  # Educacional ...
-  echo "Instalando pacote Educacional ..."
-  sleep 1
-  sudo apt-get update
-
-  echo "Deseja instalar o JAVA? (s/n)"
-  read confim;
-  if [[ $confim == "s" ]]; then
-    echo " -------------- JAVA --------------"
-    sudo apt-get install default-jre
-  fi
-
-  # EM DESENVOLVIMENTO
 
   # Mensagem de Conclusão
   echo ""
@@ -443,7 +433,6 @@ menu() {
     inst-dev) installdev ;;
     inst-sec) installsec ;;
     inst-elet) installelet ;;
-    inst-edu) installedu ;;
     inst-home) installhome ;;
     # Outros
     config-serv) configserv ;;
