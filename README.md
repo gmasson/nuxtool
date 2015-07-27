@@ -1,4 +1,4 @@
-# NuxTool 0.9
+# NuxTool 0.9.3
 Criado a partir de uma necessidade pessoal, o NuxTool vem com muitas ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados), como por exemplo:
 
 * Instalador de Pacotes de programas (Estúdio, Desenvolvimento, Engenharia)
