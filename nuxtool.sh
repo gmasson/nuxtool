@@ -26,7 +26,6 @@ function ajuda() {
   echo "inst-sec - Segurança"
   echo "inst-elet - Eletrônica e Engenharia"
   echo "inst-home - Para Casa"
-  echo ""
 
   echo ""
 
@@ -97,6 +96,7 @@ function installstudio() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o GIMP? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -104,6 +104,7 @@ function installstudio() {
     sudo apt-get install gimp
   fi
 
+  echo ""
   echo "Deseja instalar o INKSCAPE? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -111,6 +112,7 @@ function installstudio() {
     sudo apt-get install inkscape
   fi
 
+  echo ""
   echo "Deseja instalar o BLENDER? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -118,6 +120,7 @@ function installstudio() {
     sudo apt-get install blender
   fi
 
+  echo ""
   echo "Deseja instalar o AUDACITY? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -125,6 +128,7 @@ function installstudio() {
     sudo apt-get install audacity
   fi
 
+  echo ""
   echo "Deseja instalar o OPENSHOT? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -149,6 +153,7 @@ function installgame() {
   echo " -------------- JAVA --------------"
   sudo apt-get install default-jre
 
+  echo ""
   echo "Deseja instalar o STEAM? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -156,6 +161,15 @@ function installgame() {
     sudo apt-get install steam
   fi
 
+  echo ""
+  echo "Deseja instalar o STEAM? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- STEAM --------------"
+    sudo apt-get install steam
+  fi
+
+  echo ""
   echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -178,6 +192,7 @@ function installserv() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o APACHE? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -185,6 +200,7 @@ function installserv() {
     sudo apt-get install apache2
   fi
 
+  echo ""
   echo "Deseja instalar o MYSQL? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -194,6 +210,7 @@ function installserv() {
       sudo mysql_secure_installation
   fi
 
+  echo ""
   echo "Deseja instalar o PHP? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -202,6 +219,7 @@ function installserv() {
     sudo apt-get install php5-curl
   fi
 
+  echo ""
   echo "Deseja instalar o PHPMYADMIN? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -209,6 +227,7 @@ function installserv() {
     sudo apt-get install phpmyadmin
   fi
 
+  echo ""
   echo "Deseja instalar o GIT? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -218,18 +237,12 @@ function installserv() {
 
   # add: FTP
 
+  echo ""
   echo "Deseja instalar o SAMBA? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SAMBA --------------"
     sudo apt-get install samba
-  fi
-
-  echo "Deseja instalar o WIRESHARK? (s/n)"
-  read confim;
-  if [[ $confim == "s" ]]; then
-    echo " -------------- WIRESHARK --------------"
-    sudo apt-get install wireshark
   fi
 
   # Mensagem de Conclusão
@@ -246,6 +259,7 @@ function installdev() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o FILEZILLA? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -253,6 +267,7 @@ function installdev() {
     sudo apt-get install filezilla
   fi
 
+  echo ""
   echo "Deseja instalar o WIRESHARK? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -260,6 +275,7 @@ function installdev() {
     sudo apt-get install wireshark
   fi
 
+  echo ""
   echo "Deseja instalar o MYSQL WORKBENCH? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -267,6 +283,7 @@ function installdev() {
     apt-get install mysql-workbench mysql-workbench-data
   fi
 
+  echo ""
   echo "Deseja instalar o VIM? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -290,6 +307,7 @@ function installsec() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o WIRESHARK? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -313,6 +331,7 @@ function installelet() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o ARDUINO? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -322,6 +341,7 @@ function installelet() {
     sudo apt-get install avr-libc
   fi
 
+  echo ""
   echo "Deseja instalar o FRITZING? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -343,6 +363,7 @@ function installhome() {
   sleep 1
   sudo apt-get update
 
+  echo ""
   echo "Deseja instalar o JAVA? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -350,6 +371,7 @@ function installhome() {
     sudo apt-get install default-jre
   fi
 
+  echo ""
   echo "Deseja instalar o RAR? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -357,6 +379,7 @@ function installhome() {
     sudo apt-get install rar
   fi
 
+  echo ""
   echo "Deseja instalar o SKYPE? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -364,6 +387,7 @@ function installhome() {
     sudo apt-get install skype
   fi
 
+  echo ""
   echo "Deseja instalar o LIBREOFFICE? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -371,6 +395,7 @@ function installhome() {
     sudo apt-get install libreoffice
   fi
 
+  echo ""
   echo "Deseja instalar o ACETONEISO? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
@@ -378,6 +403,7 @@ function installhome() {
     sudo apt-get install AcetoneISO
   fi
 
+  echo ""
   echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
   read confim;
   if [[ $confim == "s" ]]; then
