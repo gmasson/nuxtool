@@ -205,9 +205,9 @@ function installserv() {
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- MYSQL --------------"
-      sudo apt-get install mysql-server php5-mysql
-      sudo mysql_install_db
-      sudo mysql_secure_installation
+    sudo apt-get install mysql-server php5-mysql
+    sudo mysql_install_db
+    sudo mysql_secure_installation
   fi
 
   echo ""
@@ -280,7 +280,7 @@ function installdev() {
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- MYSQL WORKBENCH --------------"
-    apt-get install mysql-workbench mysql-workbench-data
+    sudo apt-get install mysql-workbench mysql-workbench-data
   fi
 
   echo ""
@@ -288,7 +288,15 @@ function installdev() {
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- VIM --------------"
-    apt-get install vim
+    sudo apt-get install vim
+  fi
+
+  echo ""
+  echo "Deseja instalar o PUTTY? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- PUTTY --------------"
+    sudo apt-get install putty
   fi
 
   # EM DESENVOLVIMENTO
