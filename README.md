@@ -1,8 +1,5 @@
-# NuxTool 0.9.3
-Criado a partir de uma necessidade pessoal, o NuxTool vem com muitas ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados), como por exemplo:
-
-* Instalador de Pacotes de programas (Estúdio, Desenvolvimento, Engenharia, ...)
-* Gerenciamento de Atualizações
+# NuxTool 1.0
+Criado a partir de uma necessidade pessoal, o NuxTool vem com ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados).
 
 ## Como Usar
 Primeiramente [faça o download](https://github.com/gmasson/nuxtool/zipball/master) do programa, cujo também pode ser feito com o seguinte comando no terminal:
