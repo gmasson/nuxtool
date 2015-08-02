@@ -2,10 +2,25 @@
 # NuxTool 1.0
 # https://github.com/gmasson/nuxstart
 
+# CORES
+
+verm="\033[1;31m"
+verd="\033[1;32m"
+azul="\033[1;34m"
+
+bgverm="\033[41;1;37m"
+bgverd="\033[42;1;37m"
+bgazul="\033[44;1;37m"
+
+fimcor="\033[0m"
+
+
+# SOFTWARE
+
 sudo apt-get check
 clear
 echo "----------------------------------------"
-echo "Bem Vindo ao NuxTool 1.0"
+echo -e "$azul Bem Vindo ao NuxTool 1.0 $fimcor"
 echo "----------------------------------------"
 
 # ----------------------------------------
@@ -13,13 +28,13 @@ echo "----------------------------------------"
 # ----------------------------------------
 
 function ajuda() {
-  echo "-------------------------"
-  echo "Como usar o NuxTool 1.0"
-  echo "-------------------------"
-
+  echo ""
+  echo "----------------------------------------"
+  echo -e "$azul Como usar o NuxTool 1.0 $fimcor"
+  echo "----------------------------------------"
   echo ""
 
-  echo "Pacotes de Programas para instalação"
+  echo -e "$bgazul Pacotes de Programas para instalação $fimcor"
   echo "----------------------------------------"
   echo "inst-studio - Estúdio"
   echo "inst-game - Jogos"
@@ -30,7 +45,7 @@ function ajuda() {
 
   echo ""
 
-  echo "Ferramentas"
+  echo -e "$bgazul Ferramentas $fimcor"
   echo "----------------------------------------"
   echo "atual - Atualiza o sistema (Incluindo atualizações de segurança)"
   echo "atual-dist - Atualiza sua distribuição para a versão mais recente"
@@ -46,7 +61,7 @@ function ajuda() {
 
   echo ""
 
-  echo "Outras"
+  echo -e "$bgazul Outras $fimcor"
   echo "----------------------------------------"
   echo "exit - Fechar Programa"
 
@@ -103,7 +118,7 @@ function infohd() {
   echo "Exibindo Informações do HD"
   df
   echo ""
-  echo "Deseja visualizar a lista de pastas do HD? (s/n)"
+  echo -e "$azul Deseja visualizar a lista de pastas do HD? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PASTAS --------------"
@@ -134,7 +149,7 @@ function infoproc() {
 
 function bkp() {
   echo ""
-  echo "Deseja copiar um único arquivo? (s/n)"
+  echo -e "$azul Deseja copiar um único arquivo? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo "Qual o caminho do arquivo que deseja copiar?"
@@ -186,7 +201,7 @@ function installstudio() {
   sudo apt-get update
 
   echo ""
-  echo "Deseja instalar o GIMP? (s/n)"
+  echo -e "$azul Deseja instalar o GIMP? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- GIMP --------------"
@@ -194,7 +209,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o INKSCAPE? (s/n)"
+  echo -e "$azul Deseja instalar o INKSCAPE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- INKSCAPE --------------"
@@ -202,7 +217,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o BLENDER? (s/n)"
+  echo -e "$azul Deseja instalar o BLENDER? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- BLENDER --------------"
@@ -210,7 +225,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o AUDACITY? (s/n)"
+  echo -e "$azul Deseja instalar o AUDACITY? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- AUDACITY --------------"
@@ -218,7 +233,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o OPENSHOT? (s/n)"
+  echo -e "$azul Deseja instalar o OPENSHOT? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- OPENSHOT --------------"
@@ -226,7 +241,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o PIVITI? (s/n)"
+  echo -e "$azul Deseja instalar o PIVITI? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PIVITI --------------"
@@ -234,7 +249,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o AUDACIOUS? (s/n)"
+  echo -e "$azul Deseja instalar o AUDACIOUS? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- AUDACIOUS --------------"
@@ -242,7 +257,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o VLC PLAYER? (s/n)"
+  echo -e "$azul Deseja instalar o VLC PLAYER? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- VLC PLAYER --------------"
@@ -250,7 +265,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o K3B? (s/n)"
+  echo -e "$azul Deseja instalar o K3B? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- K3B --------------"
@@ -258,7 +273,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o AVIDEMUX? (s/n)"
+  echo -e "$azul Deseja instalar o AVIDEMUX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- AVIDEMUX --------------"
@@ -266,7 +281,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o SCRIBUS? (s/n)"
+  echo -e "$azul Deseja instalar o SCRIBUS? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SCRIBUS --------------"
@@ -274,7 +289,7 @@ function installstudio() {
   fi
 
   echo ""
-  echo "Deseja instalar o CHEESE? (s/n)"
+  echo -e "$azul Deseja instalar o CHEESE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- CHEESE --------------"
@@ -283,7 +298,7 @@ function installstudio() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   sleep 1
   menu
@@ -299,7 +314,7 @@ function installgame() {
   sudo apt-get install default-jre
 
   echo ""
-  echo "Deseja instalar o STEAM? (s/n)"
+  echo -e "$azul Deseja instalar o STEAM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- STEAM --------------"
@@ -307,7 +322,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
+  echo -e "$azul Deseja instalar o WINE / PLAYONLINUX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo -e " -------------- WINE / PLAYONLINUX --------------"
@@ -316,7 +331,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o SUPER TUX KART? (s/n)"
+  echo -e "$azul Deseja instalar o SUPER TUX KART? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SUPER TUX KART --------------"
@@ -324,7 +339,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o DREAM CHESS? (s/n)"
+  echo -e "$azul Deseja instalar o DREAM CHESS? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- DREAM CHESS --------------"
@@ -332,7 +347,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o KCHECKERS? (s/n)"
+  echo -e "$azul Deseja instalar o KCHECKERS? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- KCHECKERS --------------"
@@ -340,7 +355,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o FLIGHT GEAR? (s/n)"
+  echo -e "$azul Deseja instalar o FLIGHT GEAR? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FLIGHT GEAR --------------"
@@ -348,7 +363,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o ZSNES - Emulador Super Nintendo? (s/n)"
+  echo -e "$azul Deseja instalar o ZSNES - Emulador Super Nintendo? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- ZSNES - Emulador Super Nintendo --------------"
@@ -356,7 +371,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o STELA - Emulador Atari? (s/n)"
+  echo -e "$azul Deseja instalar o STELA - Emulador Atari? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- STELA - Emulador Atari --------------"
@@ -364,7 +379,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o PCSXR - Emulador PS1? (s/n)"
+  echo -e "$azul Deseja instalar o PCSXR - Emulador PS1? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PCSXR - Emulador PS1 --------------"
@@ -372,7 +387,7 @@ function installgame() {
   fi
 
   echo ""
-  echo "Deseja instalar o KDE GAMES? (s/n)"
+  echo -e "$azul Deseja instalar o KDE GAMES? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- KDE GAMES --------------"
@@ -381,7 +396,7 @@ function installgame() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   echo "OBSERVAÇÃO:"
   echo "- Agora você pode executar grande parte dos jogos do Windows no Linux usando o WINE"
@@ -397,7 +412,7 @@ function installserv() {
   sudo apt-get update
 
   echo ""
-  echo "Deseja instalar o APACHE? (s/n)"
+  echo -e "$azul Deseja instalar o APACHE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- APACHE --------------"
@@ -405,7 +420,7 @@ function installserv() {
   fi
   
   echo ""
-  echo "Deseja instalar o NGINX? (s/n)"
+  echo -e "$azul Deseja instalar o NGINX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- NGINX --------------"
@@ -413,7 +428,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o MYSQL? (s/n)"
+  echo -e "$azul Deseja instalar o MYSQL? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- MYSQL --------------"
@@ -423,7 +438,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o PHP? (s/n)"
+  echo -e "$azul Deseja instalar o PHP? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PHP --------------"
@@ -432,7 +447,7 @@ function installserv() {
   fi
   
   echo ""
-  echo "Deseja instalar o NODEJS? (s/n)"
+  echo -e "$azul Deseja instalar o NODEJS? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- NODEJS --------------"
@@ -440,7 +455,7 @@ function installserv() {
   fi
   
   echo ""
-  echo "Deseja instalar o NPM? (s/n)"
+  echo -e "$azul Deseja instalar o NPM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- NPM --------------"
@@ -448,7 +463,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o NANO? (s/n)"
+  echo -e "$azul Deseja instalar o NANO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- NANO --------------"
@@ -456,7 +471,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o GIT? (s/n)"
+  echo -e "$azul Deseja instalar o GIT? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- GIT --------------"
@@ -464,7 +479,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o FTP? (s/n)"
+  echo -e "$azul Deseja instalar o FTP? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FTP --------------"
@@ -472,7 +487,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o PHPMYADMIN? (s/n)"
+  echo -e "$azul Deseja instalar o PHPMYADMIN? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PHPMYADMIN --------------"
@@ -480,7 +495,7 @@ function installserv() {
   fi
 
   echo ""
-  echo "Deseja instalar o SAMBA? (s/n)"
+  echo -e "$azul Deseja instalar o SAMBA? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SAMBA --------------"
@@ -489,7 +504,7 @@ function installserv() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   sleep 1
   menu
@@ -502,7 +517,7 @@ function installdev() {
   sudo apt-get update
 
   echo ""
-  echo "Deseja instalar o FILEZILLA? (s/n)"
+  echo -e "$azul Deseja instalar o FILEZILLA? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FILEZILLA --------------"
@@ -510,7 +525,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o WIRESHARK? (s/n)"
+  echo -e "$azul Deseja instalar o WIRESHARK? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- WIRESHARK --------------"
@@ -518,7 +533,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o MYSQL WORKBENCH? (s/n)"
+  echo -e "$azul Deseja instalar o MYSQL WORKBENCH? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- MYSQL WORKBENCH --------------"
@@ -526,7 +541,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o VIM? (s/n)"
+  echo -e "$azul Deseja instalar o VIM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- VIM --------------"
@@ -534,7 +549,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o NANO? (s/n)"
+  echo -e "$azul Deseja instalar o NANO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- NANO --------------"
@@ -542,7 +557,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o ATOM? (s/n)"
+  echo -e "$azul Deseja instalar o ATOM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- ATOM --------------"
@@ -550,7 +565,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o SUBLIME TEXT? (s/n)"
+  echo -e "$azul Deseja instalar o SUBLIME TEXT? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SUBLIME TEXT --------------"
@@ -558,7 +573,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o PUTTY? (s/n)"
+  echo -e "$azul Deseja instalar o PUTTY? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PUTTY --------------"
@@ -566,7 +581,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o UMBRELLO? (s/n)"
+  echo -e "$azul Deseja instalar o UMBRELLO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- UMBRELLO --------------"
@@ -574,7 +589,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o FIREFOX? (s/n)"
+  echo -e "$azul Deseja instalar o FIREFOX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FIREFOX --------------"
@@ -582,7 +597,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o OPERA? (s/n)"
+  echo -e "$azul Deseja instalar o OPERA? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- OPERA --------------"
@@ -590,7 +605,7 @@ function installdev() {
   fi
 
   echo ""
-  echo "Deseja instalar o CHROMIUM? (s/n)"
+  echo -e "$azul Deseja instalar o CHROMIUM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- CHROMIUM --------------"
@@ -599,7 +614,7 @@ function installdev() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   sleep 1
   menu
@@ -612,7 +627,7 @@ function installelet() {
   sudo apt-get update
 
   echo ""
-  echo "Deseja instalar o ARDUINO? (s/n)"
+  echo -e "$azul Deseja instalar o ARDUINO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- ARDUINO --------------"
@@ -622,7 +637,7 @@ function installelet() {
   fi
 
   echo ""
-  echo "Deseja instalar o FRITZING? (s/n)"
+  echo -e "$azul Deseja instalar o FRITZING? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FRITZING --------------"
@@ -630,7 +645,7 @@ function installelet() {
   fi
 
   echo ""
-  echo "Deseja instalar o PCB? (s/n)"
+  echo -e "$azul Deseja instalar o PCB? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- PCB --------------"
@@ -638,7 +653,7 @@ function installelet() {
   fi
 
   echo ""
-  echo "Deseja instalar o GRESISTOR? (s/n)"
+  echo -e "$azul Deseja instalar o GRESISTOR? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- GRESISTOR --------------"
@@ -647,7 +662,7 @@ function installelet() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   sleep 1
   menu
@@ -660,7 +675,7 @@ function installhome() {
   sudo apt-get update
 
   echo ""
-  echo "Deseja instalar o JAVA? (s/n)"
+  echo -e "$azul Deseja instalar o JAVA? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- JAVA --------------"
@@ -668,7 +683,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o RAR? (s/n)"
+  echo -e "$azul Deseja instalar o RAR? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- RAR --------------"
@@ -676,7 +691,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o FIREFOX? (s/n)"
+  echo -e "$azul Deseja instalar o FIREFOX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- FIREFOX --------------"
@@ -684,7 +699,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o OPERA? (s/n)"
+  echo -e "$azul Deseja instalar o OPERA? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- OPERA --------------"
@@ -692,7 +707,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o CHROMIUM? (s/n)"
+  echo -e "$azul Deseja instalar o CHROMIUM? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- CHROMIUM --------------"
@@ -700,7 +715,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o SKYPE? (s/n)"
+  echo -e "$azul Deseja instalar o SKYPE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SKYPE --------------"
@@ -708,7 +723,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o TUXPAINT? (s/n)"
+  echo -e "$azul Deseja instalar o TUXPAINT? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- TUXPAINT --------------"
@@ -716,7 +731,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o LIBREOFFICE? (s/n)"
+  echo -e "$azul Deseja instalar o LIBREOFFICE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- LIBREOFFICE --------------"
@@ -724,7 +739,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o ACETONEISO? (s/n)"
+  echo -e "$azul Deseja instalar o ACETONEISO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- ACETONEISO --------------"
@@ -732,7 +747,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o UGET? (s/n)"
+  echo -e "$azul Deseja instalar o UGET? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- UGET --------------"
@@ -740,7 +755,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o ALARM CLOCK? (s/n)"
+  echo -e "$azul Deseja instalar o ALARM CLOCK? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- ALARM CLOCK --------------"
@@ -748,7 +763,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o SYSINFO? (s/n)"
+  echo -e "$azul Deseja instalar o SYSINFO? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SYSINFO --------------"
@@ -756,7 +771,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o CALIBRE? (s/n)"
+  echo -e "$azul Deseja instalar o CALIBRE? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- CALIBRE --------------"
@@ -764,7 +779,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o OPENSHOT? (s/n)"
+  echo -e "$azul Deseja instalar o OPENSHOT? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- OPENSHOT --------------"
@@ -772,7 +787,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o VLC PLAYER? (s/n)"
+  echo -e "$azul Deseja instalar o VLC PLAYER? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- VLC PLAYER --------------"
@@ -780,7 +795,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o SMPLAYER? (s/n)"
+  echo -e "$azul Deseja instalar o SMPLAYER? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- SMPLAYER --------------"
@@ -788,7 +803,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o K3B? (s/n)"
+  echo -e "$azul Deseja instalar o K3B? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- K3B --------------"
@@ -796,7 +811,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o AVIDEMUX? (s/n)"
+  echo -e "$azul Deseja instalar o AVIDEMUX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- AVIDEMUX --------------"
@@ -804,7 +819,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o TRANSMISSION? (s/n)"
+  echo -e "$azul Deseja instalar o TRANSMISSION? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- TRANSMISSION --------------"
@@ -812,7 +827,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o THUNDERBIRD? (s/n)"
+  echo -e "$azul Deseja instalar o THUNDERBIRD? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo " -------------- THUNDERBIRD --------------"
@@ -820,7 +835,7 @@ function installhome() {
   fi
 
   echo ""
-  echo "Deseja instalar o WINE / PLAYONLINUX? (s/n)"
+  echo -e "$azul Deseja instalar o WINE / PLAYONLINUX? (s/n)$fimcor"
   read confim;
   if [[ $confim == "s" ]]; then
     echo -e " -------------- WINE / PLAYONLINUX --------------"
@@ -830,7 +845,7 @@ function installhome() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Pacote Instalado com Sucesso!"
+  echo -e "$bgverd Concluido! $fimcor"
   echo ""
   sleep 1
   menu
@@ -842,8 +857,8 @@ function installhome() {
 
 function error() {
   echo ""
-  echo "Ops, Comando inválido, tente novamente!"
-  echo "DICA: "
+  echo "$verm Ops, Comando inválido, tente novamente! $fimcor"
+  echo "DICA:"
   echo "- Verifique se o Caps Look está ativado"
   sleep 1
   menu
