@@ -19,6 +19,7 @@ fimcor="\033[0m"
 
 sudo apt-get check
 clear
+
 echo "----------------------------------------"
 echo -e "$azul Bem Vindo ao NuxTool 1.0 $fimcor"
 echo "----------------------------------------"
