@@ -403,6 +403,14 @@ function installserv() {
     echo " -------------- APACHE --------------"
     sudo apt-get install apache2
   fi
+  
+  echo ""
+  echo "Deseja instalar o NGINX? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- NGINX --------------"
+    sudo apt-get install nginx
+  fi
 
   echo ""
   echo "Deseja instalar o MYSQL? (s/n)"
@@ -421,6 +429,22 @@ function installserv() {
     echo " -------------- PHP --------------"
     sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
     sudo apt-get install php5-curl
+  fi
+  
+  echo ""
+  echo "Deseja instalar o NODEJS? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- NODEJS --------------"
+    sudo apt-get install nodejs
+  fi
+  
+  echo ""
+  echo "Deseja instalar o NPM? (s/n)"
+  read confim;
+  if [[ $confim == "s" ]]; then
+    echo " -------------- NPM --------------"
+    sudo apt-get install npm
   fi
 
   echo ""
