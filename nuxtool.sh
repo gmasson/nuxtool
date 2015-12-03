@@ -63,6 +63,12 @@ function ajuda() {
 
   echo ""
 
+  echo -e "$bgazul Ferramentas GIT $fimcor"
+  echo "----------------------------------------"
+  echo -e "$verd git-send$fimcor - Enviar modificações para o repositório original"
+
+  echo ""
+
   echo -e "$bgazul Outras $fimcor"
   echo "----------------------------------------"
   echo -e "$verd exit$fimcor - Fechar Programa"
@@ -194,6 +200,21 @@ function corrigir() {
   echo ""
   echo "Sistema melhorado com Sucesso!"
   echo ""
+  menu
+}
+
+# ----------------------------------------
+# Funções do GIT
+# ----------------------------------------
+
+function send() {
+  echo ""
+  git status
+  git add --all
+  git commit -m "Updates"
+  git push origin master
+  echo ""
+  echo -e "$verd OK $fimcor"
   menu
 }
 
@@ -1015,6 +1036,8 @@ menu() {
 
   case $pack in
     ajuda) ajuda ;;
+    # Comandos do Git
+    git-send) send ;;
     # Pacotes
     inst-studio) installstudio ;;
     inst-game) installgame ;;
