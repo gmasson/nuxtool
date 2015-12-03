@@ -40,7 +40,8 @@ function ajuda() {
   echo "----------------------------------------"
   echo -e "$verd inst-studio$fimcor - Estúdio"
   echo -e "$verd inst-game$fimcor - Jogos"
-  echo -e "$verd inst-serv$fimcor - Servidores Web"
+  echo -e "$verd inst-serv$fimcor - Servidores"
+  echo -e "$verd inst-serv-web$fimcor - Servidores Web (Programas essênciais)"
   echo -e "$verd inst-dev$fimcor - Desenvolvedores"
   echo -e "$verd inst-elet$fimcor - Eletrônica e Engenharia"
   echo -e "$verd inst-home$fimcor - Para Casa"
@@ -923,6 +924,26 @@ function installserv() {
   menu
 }
 
+function installservweb() {
+  # Servidores ...
+  echo "Instalando pacote Servidores web ..."
+  sleep 1
+  sudo apt-get update
+
+  apache2
+  nginx
+  mysql
+  php5
+  nano
+  git
+
+  # Mensagem de Conclusão
+  echo ""
+  echo ""
+  echo -e "$bgverd Concluido! $fimcor"
+  menu
+}
+
 function installdev() {
   # Desenvolvedores ...
   echo "Instalando pacote Desenvolvedores ..."
@@ -1042,6 +1063,7 @@ menu() {
     inst-studio) installstudio ;;
     inst-game) installgame ;;
     inst-serv) installserv ;;
+    inst-serv-web) installservweb ;;
     inst-dev) installdev ;;
     inst-elet) installelet ;;
     inst-home) installhome ;;
