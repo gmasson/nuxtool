@@ -1,4 +1,4 @@
-# NuxTool 1.2
+# NuxTool 1.5
 Criado a partir de uma necessidade pessoal, o NuxTool vem com ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados).
 
 ## Como Usar
@@ -18,4 +18,4 @@ agora abra o arquivo, se preferir, abra-o pelo terminal usando o comando:
 
 
 ## Documentação
-Todas os comandos disponiveis do projeto você encontra [neste link](https://github.com/gmasson/nuxtool/wiki) ou execute o programa no terminal de sua preferência e digite o comando ***ajuda***.
+Todas os comandos disponiveis do projeto você encontra dentro do software, execute o programa no terminal de sua preferência e digite o comando ***ajuda***.

@@ -38,41 +38,48 @@ function ajuda() {
 
   echo -e "$bgazul Pacotes de Programas para instalação $fimcor"
   echo "----------------------------------------"
-  echo -e "$verd inst-studio$fimcor - Estúdio"
-  echo -e "$verd inst-game$fimcor - Jogos"
-  echo -e "$verd inst-serv$fimcor - Servidores"
-  echo -e "$verd inst-serv-web$fimcor - Servidores Web (Programas essênciais)"
-  echo -e "$verd inst-dev$fimcor - Desenvolvedores"
-  echo -e "$verd inst-elet$fimcor - Eletrônica e Engenharia"
-  echo -e "$verd inst-home$fimcor - Para Casa"
+  echo -e "$verd inst-studio $fimcor - Estúdio"
+  echo -e "$verd inst-game $fimcor - Jogos"
+  echo -e "$verd inst-serv $fimcor - Servidores"
+  echo -e "$verd inst-serv-web $fimcor - Servidores Web (Programas essênciais)"
+  echo -e "$verd inst-dev $fimcor - Desenvolvedores"
+  echo -e "$verd inst-elet $fimcor - Eletrônica e Engenharia"
+  echo -e "$verd inst-home $fimcor - Para Casa"
 
   echo ""
 
   echo -e "$bgazul Ferramentas $fimcor"
   echo "----------------------------------------"
-  echo -e "$verd atual$fimcor - Atualiza o sistema (Incluindo atualizações de segurança)"
-  echo -e "$verd atual-dist$fimcor - Atualiza sua distribuição para a versão mais recente"
-  echo -e "$verd info$fimcor - Informações sobre sua máquina e o sistema operacional"
-  echo -e "$verd info-cpu$fimcor - Informações sobre seu Processador"
-  echo -e "$verd info-rede$fimcor - Informações sobre sua Rede"
-  echo -e "$verd info-memo$fimcor - Informações sobre sua Memória"
-  echo -e "$verd info-user$fimcor - Informações sobre seus Usuários Logados"
-  echo -e "$verd info-hd$fimcor - Informações sobre seu(s) HD(s)"
-  echo -e "$verd info-proc$fimcor - Informações sobre os Processos atuais da sua máquina"
-  echo -e "$verd bkp$fimcor - Backup de pastas e arquivos"
-  echo -e "$verd corrigir$fimcor - Correção completa de erros do sistema"
+  echo -e "$verd atual $fimcor - Atualiza o sistema (Incluindo atualizações de segurança)"
+  echo -e "$verd atual-dist $fimcor - Atualiza sua distribuição para a versão mais recente"
+  echo -e "$verd info $fimcor - Informações sobre sua máquina e o sistema operacional"
+  echo -e "$verd info-cpu $fimcor - Informações sobre seu Processador"
+  echo -e "$verd info-rede $fimcor - Informações sobre sua Rede"
+  echo -e "$verd info-memo $fimcor - Informações sobre sua Memória"
+  echo -e "$verd info-user $fimcor - Informações sobre seus Usuários Logados"
+  echo -e "$verd info-hd $fimcor - Informações sobre seu(s) HD(s)"
+  echo -e "$verd info-proc $fimcor - Informações sobre os Processos atuais da sua máquina"
+  echo -e "$verd bkp $fimcor - Backup de pastas e arquivos"
+  echo -e "$verd corrigir $fimcor - Correção completa de erros do sistema"
+  echo -e "$verd duplica $fimcor - Adicionar uma cópia atualizada do NuxTool em outra pasta"
 
   echo ""
 
   echo -e "$bgazul Ferramentas GIT $fimcor"
   echo "----------------------------------------"
-  echo -e "$verd git-send$fimcor - Enviar modificações para o repositório original"
+  echo -e "$verd git-send $fimcor - Enviar modificações para o repositório original"
+
+  echo ""
+
+  echo -e "$bgazul Ferramentas para Servidores $fimcor"
+  echo "----------------------------------------"
+  echo -e "$verd novo-host $fimcor - Adicionar novo HOST no servidor"
 
   echo ""
 
   echo -e "$bgazul Outras $fimcor"
   echo "----------------------------------------"
-  echo -e "$verd exit$fimcor - Fechar Programa"
+  echo -e "$verd exit $fimcor - Fechar Programa"
 
   menu
 }
@@ -199,7 +206,21 @@ function corrigir() {
 
   # Mensagem de Conclusão
   echo ""
-  echo "Sistema melhorado com Sucesso!"
+  echo "$verd Sistema melhorado com Sucesso! $fimcor"
+  echo ""
+  menu
+}
+
+function duplica() {
+  echo ""
+  echo "Informe o nome da pasta que deseja ter o NuxTool (Ex.: /var/www/html/projeto) :"
+  read pasta
+
+  wget -c -P $pasta https://raw.githubusercontent.com/gmasson/nuxtool/master/nuxtool.sh
+
+  # Mensagem de Conclusão
+  echo ""
+  echo "$verd NuxTool foi duplicado, verifique a pasta $pasta para conferir $fimcor"
   echo ""
   menu
 }
@@ -214,8 +235,50 @@ function send() {
   git add --all
   git commit -m "Updates"
   git push origin master
+
+  # Mensagem de Conclusão
   echo ""
   echo -e "$verd OK $fimcor"
+  menu
+}
+
+# ----------------------------------------
+# Funções para servidores
+# ----------------------------------------
+
+function novohost() {
+  echo ""
+  echo "Informe o nome do servidor (Ex.: nomedosite) :"
+  read vhost
+   
+  echo "Informe o caminho da pasta do site (Ex.: nomedosite), lembrando que a pasta já precisa existir:"
+  echo ""
+  echo -e "OBS: caso sua pasta padrão para os arquivos esteja em $verm /var/www/html/ $fimcor informe o caminho da pasta usando $verm html/nomedosite $fimcor"
+  echo ""
+  read path
+   
+  echo "$verd Criando configuração de host... $fimcor"
+  echo "<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName $vhost
+        ServerAlias www.$vhost 
+        DocumentRoot /var/www/$path
+       <Directory /var/www/$path>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+         </Directory>
+  </VirtualHost>" > /etc/apache2/sites-available/$vhost.conf
+
+  a2ensite $vhost.conf
+
+  echo "127.0.1.1     $vhost www.$vhost" >> /etc/hosts
+
+  service apache2 restart
+
+  # Mensagem de Conclusão
+  echo -e "$verd Host criado com sucesso $fimcor"
   menu
 }
 
@@ -1059,6 +1122,8 @@ menu() {
     ajuda) ajuda ;;
     # Comandos do Git
     git-send) send ;;
+    # Comandos para Servidores
+    novo-host) novohost ;;
     # Pacotes
     inst-studio) installstudio ;;
     inst-game) installgame ;;
@@ -1079,6 +1144,7 @@ menu() {
     info-proc) infoproc ;;
     bkp) bkp ;;
     corrigir) corrigir ;;
+    duplica) duplica ;;
     sair) out ;;
     *) error ;;
   esac
