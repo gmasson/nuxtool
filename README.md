@@ -31,7 +31,9 @@ Desenvolva ferramentas que facilitem o dia a dia dos usuários, como ferramentas
 
 
 ### help.sh
-O arquivo ***help.sh*** é onde o desenvolvedor coloca a descrição de seu módulo, visto que este arquivo será inscluido automaticamente no comando ***help*** do NuxTool
+O arquivo ***help.sh*** é onde o desenvolvedor coloca a descrição de seu módulo, em quantos idiomas preferir, visto que este arquivo será incluido automaticamente no comando ***help*** do NuxTool
+
+A estrutura de exemplo dentro do arquivo help.sh utiliza as siglas do idioma suportado para definir qual texto exibir conforme o idioma utilizado pelo usuário.
 
 
 ### Disponibilização
