@@ -19,11 +19,16 @@ O nome da pasta é o mesmo nome do arquivo do módulo, pois este será o comando
      |- test.sh
      |- help.sh
 ```
-O comando para executar esete módulo será:
+O comando para executar este módulo será:
 ```
 test
 ```
 
+### Sugestões de módulos
+...
 
-#### Instruções
-Acesse <http://gmasson.com.br/nuxtool/>
+### help.sh
+...
+
+### Disponibilização
+...
