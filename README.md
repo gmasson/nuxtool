@@ -38,5 +38,6 @@ O arquivo ***help.sh*** é onde o desenvolvedor coloca a descrição de seu mód
 Colabore com a comunidade, disponibilize seus módulos em seu GitHub e divulgue para que tenhamos mais adeptos ao software, caso queira, [apresente para o desenvolvedor](http://gmasson.com.br) para que ele ajude na divulgação.
 
 ### Suporte
-Tenha suporte para o desenvolvimento, [entre em contato](http://gmasson.com.br) 
+Tenha suporte para o desenvolvimento, [entre em contato](http://gmasson.com.br)
+
 ***suporte 100% gratuito desde que seu módulo seja open source***
