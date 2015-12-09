@@ -31,15 +31,15 @@ Desenvolva ferramentas que facilitem o dia a dia dos usuários, como ferramentas
 
 
 ### help.sh
-O arquivo ***help.sh*** é onde o desenvolvedor coloca a descrição de seu módulo, em quantos idiomas preferir, visto que este arquivo será incluido automaticamente no comando ***help*** do NuxTool
+O arquivo ***help.sh*** é onde o desenvolvedor coloca a descrição de seu módulo, em quantos idiomas preferir, visto que este arquivo será incluso automaticamente no comando ***help*** do NuxTool
 
-A estrutura de exemplo dentro do arquivo help.sh utiliza as siglas do idioma suportado para definir qual texto exibir conforme o idioma utilizado pelo usuário.
+A estrutura de exemplo dentro do arquivo help.sh utiliza as siglas do idioma suportado para definir qual texto exibir, conforme o idioma utilizado pelo usuário.
 
 
 ### Disponibilização
 Colabore com a comunidade, disponibilize seus módulos em seu GitHub e divulgue para que tenhamos mais adeptos ao software, caso queira, [apresente para o desenvolvedor](http://gmasson.com.br) para que ele ajude na divulgação.
 
 ### Suporte
-Tenha suporte para o desenvolvimento, [entre em contato](http://gmasson.com.br)
+para ter suporte no desenvolvimento, [entre em contato](http://gmasson.com.br)
 
 ***suporte 100% gratuito desde que seu módulo seja open source***
