@@ -5,9 +5,9 @@ Criado a partir de uma necessidade pessoal, o NuxTool vem com ferramentas e atal
 
 ```
 |- /modules
-  |- your-module *Pasta com o nome do seu módulo
-     |- your-module.sh *Seu módulo (com o mesmo nome da pasta)
-     |- help.sh *Informações do seu módulo que serão exibidos no ***help***
+  |- your-module => Pasta com o nome do seu módulo
+     |- your-module.sh => Seu módulo (com o mesmo nome da pasta)
+     |- help.sh => Informações do seu módulo que serão exibidos no help
 ```
 
 O nome da pasta é o mesmo nome do arquivo do módulo, pois este será o comando que o usuário digitará no Nuxtool
@@ -15,8 +15,8 @@ O nome da pasta é o mesmo nome do arquivo do módulo, pois este será o comando
 
 ```
 |- /modules
-  |- ***test***
-     |- ***test***.sh
+  |- test
+     |- test.sh
      |- help.sh
 ```
 O comando para executar esete módulo será:
