@@ -11,7 +11,7 @@ Criado a partir de uma necessidade pessoal, o NuxTool vem com ferramentas e atal
 ```
 
 O nome da pasta é o mesmo nome do arquivo do módulo, pois este será o comando que o usuário digitará no Nuxtool
-#### Exemplo:
+##### Exemplo:
 
 ```
 |- /modules
