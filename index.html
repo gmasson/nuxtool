@@ -16,16 +16,16 @@
   <body>
   
     <!-- Topo -->
-    <header class="pret">
+    <header class="fundo-img f-bran" style="background-image: url('img/bg.jpg');">
       <div class="esp-tb-max f-cen">
-        <div class="f-42 mar-bas">Nuxtool <small>v1.5</small></div>
+        <div class="f-42 mar-bas">Nuxtool <small>v2.0</small></div>
         <div class="f-21 esp-bas">Ferramentas para GNU / Linux baseados em Debian</div>
 
-        <a href="https://github.com/gmasson/nuxtool/zipball/master" class="bto gra verd-3" target="_blank">
+        <a href="https://github.com/gmasson/nuxtool/zipball/master" class="bto gra roxo-2" target="_blank">
           <i class="fa fa-download"></i> Download
         </a>
         &nbsp;
-        <a href="https://github.com/gmasson/nuxtool" class="bto gra verd-3" target="_blank">
+        <a href="https://github.com/gmasson/nuxtool" class="bto gra roxo-2" target="_blank">
           <i class="fa fa-github"></i> No GitHub
         </a>
 
@@ -39,33 +39,72 @@
           Criado a partir de uma necessidade pessoal, o NuxTool vem com ferramentas e atalhos úteis para o uso cotidiano no ambiente Linux (com distribuições Debian ou derivados).
         </div>
 
+        <div class="grade mar-tb f-cen">
+
+          <div class="col3-esp">
+            <span class="f-42"><i class="fa fa-database"></i></span>
+            <h4>Modular</h4>
+            <p>Desenvolve seus módulos ou instale módulos de terceiros</p> 
+          </div>
+
+          <div class="col3-esp">
+            <span class="f-42"><i class="fa fa-flag"></i></span>
+            <h4>Suporte multilinguagens</h4>
+            <p>Defina seu idioma de preferência conforme o suporte de cada módulo</p>
+          </div>
+
+          <div class="col3-esp">
+            <span class="f-42"><i class="fa fa-graduation-cap"></i></span>
+            <h4>Fácil de utilizar</h4>
+            <p>Todos os atalhos estão disponiveis através do comando <i>help</i></p>  
+          </div>
+
+          <div class="col3-esp">
+            <span class="f-42"><i class="fa fa-heart"></i></span>
+            <h4>Open Source</h4>
+            <p>Mantido pela comunidade sob a licença MIT</p>  
+          </div>
+
+        </div>
+
         <h1 class="mar-top">Como Usar</h1>
         <div class="texto">
           Primeiramente faça o download do programa, cujo também pode ser feito com o seguinte comando no terminal:
         </div>
-        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">wget https://raw.githubusercontent.com/gmasson/nuxtool/master/nuxtool.sh</div>
-
-        <div class="texto">
-          agora abra o arquivo, se preferir, abra-o pelo terminal usando o comando:
-        </div>
-        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">chmod -R 750 nuxtool.sh</div>
+        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">git clone https://github.com/gmasson/nuxtool.git</div>
 
         <div class="texto">
           em seguida, dê permissão ao arquivo para que possa executa-lo corretamente
         </div>
-        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">./nuxtool.sh</div>
+        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">chmod -R 750 nuxtool</div>
+
+        <div class="texto">
+          agora abra o arquivo, se preferir, abra-o pelo terminal usando o comando:
+        </div>
+        <div class="bra-2 esp-min bord-min bord-cinz mar-tb-min">./nuxtool/nuxtool.sh</div>
 
         <h1 class="mar-top">Documentação</h1>
         <div class="texto">
-          Todas os comandos disponiveis do projeto você encontra dentro do software, execute o programa no terminal de sua preferência e digite o comando ajuda.
+          Todas os comandos disponiveis do projeto você encontra dentro do software, execute o programa no terminal de sua preferência e digite o comando <strong>help</strong>.
         </div>
+
+        <h1 class="mar-top">Novos Módulos</h1>
+        <div class="texto">
+          É extremamente simples desenvolver novos módulos, siga <a href="https://github.com/gmasson/nuxtool/tree/module-example" class="bto f-neg f-roxo-3" target="_blank"> este exemplo</a>, nele contem um bootstrap e todo suporte para desenvolvimento, caso precise, peça ajuda <a href="http://gmasson.com.br" class="bto f-neg f-roxo-3" target="_blank"> para o desenvolvedor</a>, ele adora ajudar a comunidade ;)
+        </div>
+
+        <h1 class="mar-top">Licença</h1>
+        <div class="texto">
+          Disponivel sob a <a href="https://github.com/gmasson/nuxtool/blob/master/LICENSE" class="bto f-neg f-roxo-3" target="_blank">licença MIT</a>, sinta-se a vontade para usar como quiser!.
+        </div>
+
       </div>
     </section>
 
     <!-- Rodapé -->
     <footer class="area mar-top bord-top-min bord-cinz">
       <div class="f-cen mar-tb">
-        <a href="http://gmasson.com.br" class="bto med bran" target="_blank">Gabriel Masson</a>
+        <a href="http://gmasson.com.br" class="bto med bran" target="_blank">Desenvolvedor</a>
         <a href="https://github.com/gmasson/nuxtool/blob/master/LICENSE" class="bto med bran" target="_blank">Licença</a>
         <a href="https://github.com/gmasson/nuxtool" class="bto med bran" target="_blank">Github</a>
       </div>
