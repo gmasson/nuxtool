@@ -14,7 +14,6 @@ O nome da pasta será o comando que o usuário digitará no Nuxtool
 
 
 ***Exemplo:***
-
 ```
 |- /modules
   |- /test
