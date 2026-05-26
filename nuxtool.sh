@@ -1,15 +1,16 @@
 #!/bin/bash
 
-source "config.sh"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/config.sh"
 
 clear
 
 echo ""
 case $language in
 	pt-br) 
-		echo -e "$blue Bem Vindo ao NuxTool 2.0 $fcolor";;
+		echo -e "$blue Bem Vindo ao NuxTool 3.0 $fcolor";;
 	*) 
-		echo -e "$blue Welcome NuxTool 2.0 $fcolor";;
+		echo -e "$blue Welcome NuxTool 3.0 $fcolor";;
 esac
 
 # ----------
@@ -23,9 +24,6 @@ function error() {
 		*) 
 			echo -e "$red Oops, Invalid command!. $fcolor Make sure the Caps Lock is enabled";;
 	esac
-
-	# menu
-	menu
 }
 
 function helpnow() {
@@ -39,8 +37,7 @@ function helpnow() {
 
 	echo ""
 
-	for entry in "modules"/*
-	do
+	for entry in "$SCRIPT_DIR/modules"/*/; do
 		source "$entry/help.sh"
 	done
 
@@ -59,20 +56,15 @@ function helpnow() {
 		*) 
 			echo -e "$green exit $fcolor - Exit Program";;
 	esac
-
-	# menu
-	menu
 }
 
-function path() {
-	if [ -f "modules/$module/module.sh" ]; then
-		source "modules/$module/module.sh"
+function loadmodule() {
+	local modfile="$SCRIPT_DIR/modules/$module/module.sh"
+	if [ -f "$modfile" ]; then
+		source "$modfile"
 	else
 		error
 	fi
-
-	# menu
-	menu
 }
 
 function out() {
@@ -89,19 +81,18 @@ function out() {
 }
 
 # ----------
-# Menu
+# Main Loop
 # ----------
 
-menu() {
+while true; do
 	echo ""
-	read -p "> " module;
+	read -p "> " module
 	echo ""
 
 	case $module in
 		help) helpnow ;;
-		exit) out ;;
-		*) path ;;
+		exit|quit) out ;;
+		"") continue ;;
+		*) loadmodule ;;
 	esac
-}
-
-menu
+done

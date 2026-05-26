@@ -1,136 +1,155 @@
 #!/bin/bash
 
 function all() {
-	echo "Exibindo Informações gerais"
+	case $language in
+		pt-br) echo -e "$blue Exibindo informações gerais do sistema... $fcolor" ;;
+		*) echo -e "$blue Displaying general system information... $fcolor" ;;
+	esac
 	uname -a
-	sleep 1
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function cpu() {
-	echo "Exibindo Informações do Processador"
-	cat /proc/cpuinfo
-	sleep 1
+	case $language in
+		pt-br) echo -e "$blue Exibindo informações do Processador... $fcolor" ;;
+		*) echo -e "$blue Displaying CPU information... $fcolor" ;;
+	esac
+	lscpu
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function net() {
-	echo "Exibindo Informações de Rede"
-	ifconfig
-	sleep 1
+	case $language in
+		pt-br) echo -e "$blue Exibindo informações de Rede... $fcolor" ;;
+		*) echo -e "$blue Displaying network information... $fcolor" ;;
+	esac
+	ip addr show
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function memo() {
-	echo "Exibindo Informações da Memória"
+	case $language in
+		pt-br) echo -e "$blue Exibindo informações da Memória RAM... $fcolor" ;;
+		*) echo -e "$blue Displaying RAM memory information... $fcolor" ;;
+	esac
 	free -h
-	sleep 1
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function hd() {
-	echo "Exibindo Informações do HD"
-	df
+	case $language in
+		pt-br) echo -e "$blue Exibindo informações de Armazenamento... $fcolor" ;;
+		*) echo -e "$blue Displaying storage information... $fcolor" ;;
+	esac
+	df -h
 	echo ""
-	echo -e "$azul Deseja visualizar a lista de pastas do HD? (s/n)$fimcor"
+	case $language in
+		pt-br) echo -e "$blue Deseja visualizar o uso de espaço por pasta? (y/n) $fcolor" ;;
+		*) echo -e "$blue Do you want to view disk usage per folder? (y/n) $fcolor" ;;
+	esac
 	read -p "= " confim;
-	if [[ $confim == "s" ]]; then
-		echo " -------------- PASTAS --------------"
-		du
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		echo ""
+		du -h --max-depth=1 "$HOME"
 	fi
-	sleep 1
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function user() {
-	echo "Exibindo Informações de Usuários Logados"
-	free -h
-	sleep 1
+	case $language in
+		pt-br) echo -e "$blue Exibindo usuários logados... $fcolor" ;;
+		*) echo -e "$blue Displaying logged-in users... $fcolor" ;;
+	esac
+	who
+	echo ""
+	w
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function proc() {
-	echo "Exibindo Processos atuais"
+	case $language in
+		pt-br)
+			echo -e "$blue Exibindo processos atuais... $fcolor"
+			echo ""
+			echo "Pressione 'q' para sair." ;;
+		*)
+			echo -e "$blue Displaying current processes... $fcolor"
+			echo ""
+			echo "Press 'q' to quit." ;;
+	esac
 	echo ""
-	echo "OBSERVAÇÃO: Após a verificação dos processos,"
-	echo "aperte CTRL C para sair."
-	echo ""
-	echo "Iniciando..."
-	sleep 3
-	top
+	sleep 1
+	if command -v htop &>/dev/null; then
+		htop
+	else
+		top
+	fi
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 
 function errormodule() {
 	case $language in
-		pt-br) 
-			echo -e "$red Ops, Comando inválido!.";;
-		*) 
-			echo -e "$red Oops, Invalid command!.";;
+		pt-br) echo -e "$red Ops, Comando inválido!." ;;
+		*) echo -e "$red Oops, Invalid command!." ;;
 	esac
-
-	# menu
-	menu
 }
 
 menumodule() {
-	echo ""
+	while true; do
+		echo ""
+		case $language in
+			pt-br)
+				echo -e "$green all $fcolor   - Informações gerais do computador"
+				echo -e "$green cpu $fcolor   - Informações sobre o Processador"
+				echo -e "$green net $fcolor   - Informações sobre a Rede"
+				echo -e "$green memo $fcolor  - Informações sobre a Memória RAM"
+				echo -e "$green hd $fcolor    - Informações sobre o Armazenamento"
+				echo -e "$green user $fcolor  - Usuários logados no sistema"
+				echo -e "$green proc $fcolor  - Processos em execução"
+				echo -e "$green back $fcolor  - Voltar ao menu principal" ;;
+			*)
+				echo -e "$green all $fcolor   - General computer information"
+				echo -e "$green cpu $fcolor   - CPU / Processor information"
+				echo -e "$green net $fcolor   - Network information"
+				echo -e "$green memo $fcolor  - RAM memory information"
+				echo -e "$green hd $fcolor    - Storage / Disk information"
+				echo -e "$green user $fcolor  - Logged-in users"
+				echo -e "$green proc $fcolor  - Running processes"
+				echo -e "$green back $fcolor  - Return to main menu" ;;
+		esac
 
-	case $language in
-		pt-br) 
-			echo -e "$green all $fcolor - Informações sobre seu computador"
-			echo -e "$green cpu $fcolor - Informações sobre o Processador"
-			echo -e "$green net $fcolor - Informações sobre sua Rede"
-			echo -e "$green memo $fcolor - Informações sobre a Memória RAM"
-			echo -e "$green hd $fcolor - Informações sobre o seu HD"
-			echo -e "$green user $fcolor - Informações sobre os Usuários do computador"
-			echo -e "$green proc $fcolor - Informações sobre o Processos atuais";;
-		*) 
-			echo -e "$green all $fcolor - Informações sobre seu computador"
-			echo -e "$green cpu $fcolor - Informações sobre o Processador"
-			echo -e "$green net $fcolor - Informações sobre sua Rede"
-			echo -e "$green memo $fcolor - Informações sobre a Memória RAM"
-			echo -e "$green hd $fcolor - Informações sobre o seu HD"
-			echo -e "$green user $fcolor - Informações sobre os Usuários do computador"
-			echo -e "$green proc $fcolor - Informações sobre o Processos atuais";;
-	esac
+		echo ""
+		read -p ">>" subcmd
+		echo ""
 
-	echo ""
-	read -p ">>" packsoftware;
-
-	case $packsoftware in
-		$packsoftware) $packsoftware ;;
-		*) errormodule ;;
-	esac
+		case $subcmd in
+			all|cpu|net|memo|hd|user|proc) $subcmd ;;
+			back|"") return ;;
+			*) errormodule ;;
+		esac
+	done
 }
 
 # Executa o menu

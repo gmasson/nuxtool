@@ -1,12 +1,23 @@
 #!/bin/bash
 
+# Verifica se snap está disponível antes de instalar via snap
+function _require_snapd() {
+	if ! command -v snap &>/dev/null; then
+		case $language in
+			pt-br) echo -e "$red Snap não disponível neste sistema. Instale com: sudo apt install snapd $fcolor" ;;
+			*) echo -e "$red Snap is not available. Install it with: sudo apt install snapd $fcolor" ;;
+		esac
+		return 1
+	fi
+}
+
 function gimp() {
 	echo ""
 	echo "Deseja instalar o GIMP? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- GIMP --------------"
-		sudo apt-get install gimp
+		sudo apt install gimp
 	fi
 }
 
@@ -16,7 +27,7 @@ function inkscape() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- INKSCAPE --------------"
-		sudo apt-get install inkscape
+		sudo apt install inkscape
 	fi
 }
 
@@ -26,7 +37,7 @@ function blender() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- BLENDER --------------"
-		sudo apt-get install blender
+		sudo apt install blender
 	fi
 }
 
@@ -36,7 +47,7 @@ function audacity() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- AUDACITY --------------"
-		sudo apt-get install audacity
+		sudo apt install audacity
 	fi
 }
 
@@ -46,17 +57,7 @@ function openshot() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- OPENSHOT --------------"
-		sudo apt-get install openshot
-	fi
-}
-
-function pitivi() {
-	echo ""
-	echo "Deseja instalar o PIVITI? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- PIVITI --------------"
-		sudo apt-get install pitivi
+		sudo apt install -y openshot-qt
 	fi
 }
 
@@ -66,7 +67,7 @@ function audacious() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- AUDACIOUS --------------"
-		sudo apt-get install audacious
+		sudo apt install audacious
 	fi
 }
 
@@ -76,17 +77,7 @@ function vlc() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- VLC PLAYER --------------"
-		sudo apt-get install vlc
-	fi
-}
-
-function k3b() {
-	echo ""
-	echo "Deseja instalar o K3B? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- K3B --------------"
-		sudo apt-get install k3b
+		sudo apt install vlc
 	fi
 }
 
@@ -96,17 +87,7 @@ function avidemux() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- AVIDEMUX --------------"
-		sudo apt-get install avidemux
-	fi
-}
-
-function scribus() {
-	echo ""
-	echo "Deseja instalar o SCRIBUS? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- SCRIBUS --------------"
-		sudo apt-get install scribus
+		sudo apt install avidemux
 	fi
 }
 
@@ -116,7 +97,7 @@ function cheese() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- CHEESE --------------"
-		sudo apt-get install cheese
+		sudo apt install cheese
 	fi
 }
 
@@ -126,7 +107,7 @@ function java() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- JAVA --------------"
-		sudo apt-get install default-jre
+		sudo apt install default-jre
 	fi
 }
 
@@ -134,30 +115,24 @@ function steam() {
 	echo ""
 	echo "Deseja instalar o STEAM? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
+	if [[ $confim =~ ^[Yy]$ ]]; then
 		echo " -------------- STEAM --------------"
-		sudo apt-get install steam
+		sudo dpkg --add-architecture i386
+		sudo apt update
+		sudo apt install -y steam-installer
 	fi
 }
 
 function wine() {
 	echo ""
-	echo "Deseja instalar o WINE / PLAYONLINUX? (y/n)"
+	echo "Deseja instalar o WINE / LUTRIS? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo -e " -------------- WINE / PLAYONLINUX --------------"
-		sudo apt-get install wine
-		sudo apt-get install playonlinux
-	fi
-}
-
-function supertuxkart() {
-	echo ""
-	echo "Deseja instalar o SUPER TUX KART? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- SUPER TUX KART --------------"
-		sudo apt-get install supertuxkart
+		echo -e " -------------- WINE / LUTRIS --------------"
+		sudo dpkg --add-architecture i386
+		sudo apt update
+		sudo apt install -y wine wine32 wine64
+		sudo apt install -y lutris
 	fi
 }
 
@@ -167,7 +142,7 @@ function dreamchess() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- DREAM CHESS --------------"
-		sudo apt-get install dreamchess
+		sudo apt install dreamchess
 	fi
 }
 
@@ -177,27 +152,17 @@ function kcheckers() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- KCHECKERS --------------"
-		sudo apt-get install kcheckers
-	fi
-}
-
-function flightgear() {
-	echo ""
-	echo "Deseja instalar o FLIGHT GEAR? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- FLIGHT GEAR --------------"
-		sudo apt-get install flightgear
+		sudo apt install kcheckers
 	fi
 }
 
 function zsnes() {
 	echo ""
-	echo "Deseja instalar o ZSNES - Emulador Super Nintendo? (y/n)"
+	echo "Deseja instalar o SNES9X - Emulador Super Nintendo? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo " -------------- ZSNES - Emulador Super Nintendo --------------"
-		sudo apt-get install zsnes
+		echo " -------------- SNES9X - Emulador Super Nintendo --------------"
+		sudo apt install -y snes9x-gtk
 	fi
 }
 
@@ -207,27 +172,17 @@ function stella() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- STELA - Emulador Atari --------------"
-		sudo apt-get install stella
+		sudo apt install stella
 	fi
 }
 
 function pcsxr() {
 	echo ""
-	echo "Deseja instalar o PCSXR - Emulador PS1? (y/n)"
+	echo "Deseja instalar o PCSX2 - Emulador PS2/PS1? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo " -------------- PCSXR - Emulador PS1 --------------"
-		sudo apt-get install pcsxr
-	fi
-}
-
-function kdegames() {
-	echo ""
-	echo "Deseja instalar o KDE GAMES? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- KDE GAMES --------------"
-		sudo apt-get install kdegames
+		echo " -------------- PCSX2 - Emulador PS2/PS1 --------------"
+		sudo apt install -y pcsx2
 	fi
 }
 
@@ -237,7 +192,7 @@ function apache2() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- APACHE --------------"
-		sudo apt-get install apache2
+		sudo apt install apache2
 	fi
 }
 	
@@ -247,19 +202,7 @@ function nginx() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- NGINX --------------"
-		sudo apt-get install nginx
-	fi
-}
-
-function mysql() {
-	echo ""
-	echo "Deseja instalar o MYSQL? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- MYSQL --------------"
-		sudo apt-get install mysql-server php5-mysql
-		sudo mysql_install_db
-		sudo mysql_secure_installation
+		sudo apt install nginx
 	fi
 }
 
@@ -267,43 +210,49 @@ function mysql() {
 	echo ""
 	echo "Deseja instalar o MariaDB? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- Instalando --------------"
-		sudo apt-get install mariadb-server mariadb-client
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		echo " -------------- MariaDB --------------"
+		sudo apt install -y mariadb-server mariadb-client
+		echo ""
+		case $language in
+			pt-br) echo "Executando configuração de segurança inicial (siga as instruções)..." ;;
+			*) echo "Running initial security setup (follow the prompts)..." ;;
+		esac
+		sleep 1
 		sudo mysql_secure_installation
-		sudo /etc/init.d/apache2 restart
 	fi
 }
 
-function php5() {
+function php() {
 	echo ""
 	echo "Deseja instalar o PHP? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- PHP --------------"
-		sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
-		sudo apt-get install php5-curl
+		sudo apt install -y php libapache2-mod-php php-mysql php-curl php-mbstring php-xml php-zip
 	fi
 }
 	
 function nodejs() {
 	echo ""
-	echo "Deseja instalar o NODEJS? (y/n)"
+	echo "Deseja instalar o NODE.JS LTS (via NodeSource)? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- NODEJS --------------"
-		sudo apt-get install nodejs
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		echo " -------------- NODE.JS LTS --------------"
+		if ! command -v curl &>/dev/null; then
+			sudo apt install -y curl
+		fi
+		curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+		sudo apt install -y nodejs
 	fi
 }
 	
 function npm() {
 	echo ""
-	echo "Deseja instalar o NPM? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- NPM --------------"
-		sudo apt-get install npm
-	fi
+	case $language in
+		pt-br) echo "O npm é instalado automaticamente com Node.js via NodeSource. Use a opção 'nodejs'." ;;
+		*) echo "npm is automatically included with Node.js via NodeSource. Use the 'nodejs' option." ;;
+	esac
 }
 
 function nano() {
@@ -312,7 +261,7 @@ function nano() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- NANO --------------"
-		sudo apt-get install nano
+		sudo apt install nano
 	fi
 }
 
@@ -322,7 +271,7 @@ function git() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- GIT --------------"
-		sudo apt-get install git
+		sudo apt install git
 	fi
 }
 
@@ -332,7 +281,7 @@ function proftpd() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- FTP --------------"
-		sudo apt-get install proftpd 
+		sudo apt install proftpd 
 	fi
 }
 
@@ -342,17 +291,7 @@ function phpmyadmin() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- PHPMYADMIN --------------"
-		sudo apt-get install phpmyadmin
-	fi
-}
-
-function samba() {
-	echo ""
-	echo "Deseja instalar o SAMBA? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- SAMBA --------------"
-		sudo apt-get install samba
+		sudo apt install phpmyadmin
 	fi
 }
 
@@ -362,7 +301,7 @@ function filezilla() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- FILEZILLA --------------"
-		sudo apt-get install filezilla
+		sudo apt install filezilla
 	fi
 }
 
@@ -372,7 +311,7 @@ function wireshark() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- WIRESHARK --------------"
-		sudo apt-get install wireshark
+		sudo apt install wireshark
 	fi
 }
 
@@ -382,7 +321,7 @@ function workbench() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- MYSQL WORKBENCH --------------"
-		sudo apt-get install mysql-workbench mysql-workbench-data
+		sudo apt install -y mysql-workbench
 	fi
 }
 
@@ -392,17 +331,18 @@ function vim() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- VIM --------------"
-		sudo apt-get install vim
+		sudo apt install vim
 	fi
 }
 
-function atom() {
+function vscode() {
 	echo ""
-	echo "Deseja instalar o ATOM? (y/n)"
+	echo "Deseja instalar o VS CODE? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- ATOM --------------"
-		sudo apt-get install atom
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
+		echo " -------------- VS CODE --------------"
+		sudo snap install code --classic
 	fi
 }
 
@@ -410,9 +350,10 @@ function sublime() {
 	echo ""
 	echo "Deseja instalar o SUBLIME TEXT? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
 		echo " -------------- SUBLIME TEXT --------------"
-		sudo apt-get install sublime-text
+		sudo snap install sublime-text --classic
 	fi
 }
 
@@ -422,59 +363,7 @@ function putty() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- PUTTY --------------"
-		sudo apt-get install putty
-	fi
-}
-
-function umbrello() {
-	echo ""
-	echo "Deseja instalar o UMBRELLO? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- UMBRELLO --------------"
-		sudo apt-get install umbrello
-	fi
-}
-
-function arduino() {
-	echo ""
-	echo "Deseja instalar o ARDUINO? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- ARDUINO --------------"
-		sudo apt-get install arduino
-		sudo apt-get install gcc-avr
-		sudo apt-get install avr-libc
-	fi
-}
-
-function fritzing() {
-	echo ""
-	echo "Deseja instalar o FRITZING? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- FRITZING --------------"
-		sudo apt-get install fritzing
-	fi
-}
-
-function pcb() {
-	echo ""
-	echo "Deseja instalar o PCB? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- PCB --------------"
-		sudo apt-get install pcb
-	fi
-}
-
-function gresistor() {
-	echo ""
-	echo "Deseja instalar o GRESISTOR? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- GRESISTOR --------------"
-		sudo apt-get install gResistor
+		sudo apt install putty
 	fi
 }
 
@@ -484,7 +373,7 @@ function firefox() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- FIREFOX --------------"
-		sudo apt-get install firefox
+		sudo apt install firefox
 	fi
 }
 
@@ -492,9 +381,10 @@ function opera() {
 	echo ""
 	echo "Deseja instalar o OPERA? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
 		echo " -------------- OPERA --------------"
-		sudo apt-get install opera
+		sudo snap install opera
 	fi
 }
 
@@ -504,37 +394,18 @@ function chromium() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- CHROMIUM --------------"
-		sudo apt-get install chromium
-	fi
-}
-
-function rar() {
-	echo ""
-	echo "Deseja instalar o RAR? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- RAR --------------"
-		sudo apt-get install rar
+		sudo apt install chromium
 	fi
 }
 
 function skype() {
 	echo ""
-	echo "Deseja instalar o SKYPE? (y/n)"
+	echo "Deseja instalar o TELEGRAM? (y/n)"
 	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- SKYPE --------------"
-		sudo apt-get install skype
-	fi
-}
-
-function tuxpaint() {
-	echo ""
-	echo "Deseja instalar o TUXPAINT? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- TUXPAINT --------------"
-		sudo apt-get install tuxpaint
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
+		echo " -------------- TELEGRAM --------------"
+		sudo snap install telegram-desktop
 	fi
 }
 
@@ -544,17 +415,17 @@ function libreoffice() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- LIBREOFFICE --------------"
-		sudo apt-get install libreoffice
+		sudo apt install libreoffice
 	fi
 }
 
 function acetoneiso() {
 	echo ""
-	echo "Deseja instalar o ACETONEISO? (y/n)"
+	echo "Deseja instalar o FUSEISO (montagem de imagens ISO)? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo " -------------- ACETONEISO --------------"
-		sudo apt-get install AcetoneISO
+		echo " -------------- FUSEISO --------------"
+		sudo apt install -y fuseiso
 	fi
 }
 
@@ -564,37 +435,27 @@ function uget() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- UGET --------------"
-		sudo apt-get install uget
+		sudo apt install uget
 	fi
 }
 
 function alarm() {
 	echo ""
-	echo "Deseja instalar o ALARM CLOCK? (y/n)"
+	echo "Deseja instalar o GNOME CLOCKS? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo " -------------- ALARM CLOCK --------------"
-		sudo apt-get install alarm-clock
+		echo " -------------- GNOME CLOCKS --------------"
+		sudo apt install -y gnome-clocks
 	fi
 }
 
 function sysinfo() {
 	echo ""
-	echo "Deseja instalar o SYSINFO? (y/n)"
+	echo "Deseja instalar o FASTFETCH (informacoes do sistema)? (y/n)"
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
-		echo " -------------- SYSINFO --------------"
-		sudo apt-get install sysinfo
-	fi
-}
-
-function calibre() {
-	echo ""
-	echo "Deseja instalar o CALIBRE? (y/n)"
-	read -p "= " confim;
-	if [[ $confim == "y" ]]; then
-		echo " -------------- CALIBRE --------------"
-		sudo apt-get install calibre
+		echo " -------------- FASTFETCH --------------"
+		sudo apt install -y fastfetch
 	fi
 }
 
@@ -604,7 +465,7 @@ function smplayer() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- SMPLAYER --------------"
-		sudo apt-get install smplayer
+		sudo apt install smplayer
 	fi
 }
 
@@ -614,7 +475,7 @@ function transmission() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- TRANSMISSION --------------"
-		sudo apt-get install transmission
+		sudo apt install transmission
 	fi
 }
 
@@ -624,6 +485,77 @@ function thunderbird() {
 	read -p "= " confim;
 	if [[ $confim == "y" ]]; then
 		echo " -------------- THUNDERBIRD --------------"
-		sudo apt-get install thunderbird
+		sudo apt install -y thunderbird
+	fi
+}
+
+function htop() {
+	echo ""
+	echo "Deseja instalar o HTOP (monitor de processos)? (y/n)"
+	read -p "= " confim;
+	if [[ $confim == "y" ]]; then
+		echo " -------------- HTOP --------------"
+		sudo apt install -y htop
+	fi
+}
+
+function btop() {
+	echo ""
+	echo "Deseja instalar o BTOP (monitor de recursos moderno)? (y/n)"
+	read -p "= " confim;
+	if [[ $confim == "y" ]]; then
+		echo " -------------- BTOP --------------"
+		sudo apt install -y btop
+	fi
+}
+
+function fastfetch() {
+	echo ""
+	echo "Deseja instalar o FASTFETCH (informacoes do sistema)? (y/n)"
+	read -p "= " confim;
+	if [[ $confim == "y" ]]; then
+		echo " -------------- FASTFETCH --------------"
+		sudo apt install -y fastfetch
+	fi
+}
+
+function discord() {
+	echo ""
+	echo "Deseja instalar o DISCORD? (y/n)"
+	read -p "= " confim;
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
+		echo " -------------- DISCORD --------------"
+		sudo snap install discord
+	fi
+}
+
+function chrome() {
+	echo ""
+	echo "Deseja instalar o GOOGLE CHROME? (y/n)"
+	read -p "= " confim;
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		echo " -------------- GOOGLE CHROME --------------"
+		if ! command -v curl &>/dev/null; then
+			sudo apt install -y curl
+		fi
+		sudo install -dm 755 /etc/apt/keyrings
+		curl -fsSL https://dl.google.com/linux/linux_signing_key.pub \
+			| sudo gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg
+		echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" \
+			| sudo tee /etc/apt/sources.list.d/google-chrome.list > /dev/null
+		sudo apt update
+		sudo apt install -y google-chrome-stable
+	fi
+}
+
+function zoom() {
+	echo ""
+	echo "Deseja instalar o ZOOM? (y/n)"
+	read -p "= " confim;
+	if [[ $confim =~ ^[Yy]$ ]]; then
+		_require_snapd || return
+		echo " -------------- ZOOM --------------"
+		sudo snap install zoom-client
 	fi
 }

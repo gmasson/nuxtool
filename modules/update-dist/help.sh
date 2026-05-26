@@ -1,6 +1,6 @@
 #!/bin/bash
 
 case $language in
-	pt-br) echo -e "$green update-dist $fcolor - Atualiza sua distribuição" ;;
-	*) echo -e "$green update-dist $fcolor - Updates its distribution" ;;
+	pt-br) echo -e "$green update-dist $fcolor - Atualização completa da distribuição (full-upgrade)" ;;
+	*) echo -e "$green update-dist $fcolor - Full distribution upgrade (full-upgrade)" ;;
 esac

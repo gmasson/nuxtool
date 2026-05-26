@@ -1,83 +1,73 @@
 #!/bin/bash
 
-source "modules/install/softwares.sh"
+source "$SCRIPT_DIR/modules/install/softwares.sh"
 
 function studio() {
-	sudo apt-get update
+	sudo apt update
 
 	gimp
 	inkscape
 	blender
 	audacity
 	openshot
-	pitivi
 	audacious
 	vlc
-	k3b
 	avidemux
-	scribus
 	cheese
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function game() {
-	sudo apt-get update
+	sudo apt update
 
 	java
 	steam
 	wine
-	supertuxkart
 	dreamchess
-	kcheckers
-	flightgear
 	zsnes
 	stella
 	pcsxr
-	kdegames
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function serv() {
-	sudo apt-get update
+	sudo apt update
 
 	apache2
 	nginx
 	mysql
-	php5
+	php
 	nodejs
 	npm
 	nano
 	git
-	proftpd 
+	proftpd
 	phpmyadmin
-	samba
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 function dev() {
-	sudo apt-get update
+	sudo apt update
 
 	filezilla
 	wireshark
 	workbench
 	vim
 	nano
-	atom
+	vscode
 	sublime
 	putty
-	umbrello
+	htop
+	btop
 	firefox
 	opera
 	chromium
@@ -85,94 +75,68 @@ function dev() {
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
-}
-
-function elet() {
-	sudo apt-get update
-
-	arduino
-	fritzing
-	pcb
-	gresistor
-
-	echo ""
-	echo -e "$bggreen OK $fcolor"
-	echo ""
-	menu
 }
 
 function home() {
-	sudo apt-get update
+	sudo apt update
 
 	java
-	rar
-	skype
-	tuxpaint
 	libreoffice
-	acetoneiso
 	uget
-	alarm
-	sysinfo
-	calibre
 	smplayer
 	avidemux
 	transmission
 	thunderbird
+	discord
+	chrome
 	firefox
-	opera
-	chromium
 	openshot
 	vlc
-	k3b
 	wine
 
 	echo ""
 	echo -e "$bggreen OK $fcolor"
 	echo ""
-	menu
 }
 
 
 function errormodule() {
 	case $language in
-		pt-br) 
-			echo -e "$red Ops, Comando inválido!.";;
-		*) 
-			echo -e "$red Oops, Invalid command!.";;
+		pt-br) echo -e "$red Ops, Comando inválido!." ;;
+		*) echo -e "$red Oops, Invalid command!." ;;
 	esac
-
-	# menu
-	menu
 }
 
 menumodule() {
-	echo ""
+	while true; do
+		echo ""
+		case $language in
+			pt-br)
+				echo -e "$green studio $fcolor - Programas para edição de áudio e vídeo"
+				echo -e "$green game $fcolor   - Jogos e emuladores"
+				echo -e "$green serv $fcolor   - Ferramentas para servidores"
+				echo -e "$green dev $fcolor    - Ferramentas para desenvolvedores"
+				echo -e "$green home $fcolor   - Programas para uso pessoal"
+				echo -e "$green back $fcolor   - Voltar ao menu principal" ;;
+			*)
+				echo -e "$green studio $fcolor - Audio and video editing tools"
+				echo -e "$green game $fcolor   - Games and emulators"
+				echo -e "$green serv $fcolor   - Server tools"
+				echo -e "$green dev $fcolor    - Developer tools"
+				echo -e "$green home $fcolor   - Personal use software"
+				echo -e "$green back $fcolor   - Return to main menu" ;;
+		esac
 
-	case $language in
-		pt-br) 
-			echo -e "$green studio $fcolor - Programas para edições de audio e vídeo"
-			echo -e "$green game $fcolor - Jogos e emuladores"
-			echo -e "$green serv $fcolor - Programas para Servidores"
-			echo -e "$green dev $fcolor - Programas para Desenvolvedores"
-			echo -e "$green elet $fcolor - Programas relacionados á Eletrônica"
-			echo -e "$green home $fcolor - Programas para uso pessoal";;
-		*) 
-			echo -e "$green studio $fcolor - Programas para edições de audio e vídeo"
-			echo -e "$green game $fcolor - Jogos e emuladores"
-			echo -e "$green serv $fcolor - Programas para Servidores"
-			echo -e "$green dev $fcolor - Programas para Desenvolvedores"
-			echo -e "$green elet $fcolor - Programas relacionados á Eletrônica"
-			echo -e "$green home $fcolor - Programas para uso pessoal";;
-	esac
+		echo ""
+		read -p ">>" subcmd
+		echo ""
 
-	echo ""
-	read -p ">>" packsoftware;
-
-	case $packsoftware in
-		$packsoftware) $packsoftware ;;
-		*) errormodule ;;
-	esac
+		case $subcmd in
+			studio|game|serv|dev|home) $subcmd ;;
+			back|"") return ;;
+			*) errormodule ;;
+		esac
+	done
 }
 
 # Executa o menu

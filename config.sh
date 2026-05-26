@@ -26,3 +26,12 @@ bgblue="\033[44;1;37m"
 
 # Color End
 fcolor="\033[0m"
+
+# ----------
+# System Check
+# ----------
+
+if ! command -v apt &>/dev/null; then
+	echo "Erro: NuxTool requer um sistema baseado em Debian/Ubuntu (apt)."
+	exit 1
+fi
